@@ -1,0 +1,160 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "1",
+        "title": "Try to understand switch",
+        "description": ""
+    },
+    "host": "localhost",
+    "basePath": "/v1",
+    "schemes": [
+        "https",
+        "http"
+    ],
+    "consumes": [
+        "application/json"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    "paths": {
+        "/transfer": {
+            "post": {
+                "tags": [
+                    "DFSP"
+                ],
+                "summary": "Transfer fund",
+                "operationId": "postTransacion",
+                "description": "Transfer fund from 1 DFSP to Another",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "identifierType",
+                        "in": "query",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "transferDetails",
+                        "in": "body",
+                        "required": true,
+                        "description": "transfer object",
+                        "schema": {
+                            "type": "object",
+                            "required": [
+                                "payerFsp",
+                                "transferId",
+                                "amount",
+                                "currency"
+                            ],
+                            "properties": {
+                                "payerFsp": {
+                                    "type": "string"
+                                },
+                                "transferId": {
+                                    "type": "string"
+                                },
+                                "amount": {
+                                    "type": "string"
+                                },
+                                "currency": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "400": {
+                        "description": "Request or query parameters not conforming to schema"
+                    },
+                    "401": {
+                        "description": "Token or credentials invalid"
+                    },
+                    "403": {
+                        "description": "No access to resource"
+                    },
+                    "404": {
+                        "description": "Resource not found"
+                    },
+                    "409": {
+                        "description": "Resource already exists"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
+        "/consumeotherservice": {
+            "get": {
+                "tags": [
+                    "Names"
+                ],
+                "summary": "returns all names",
+                "operationId": "getNames",
+                "description": "Returns all names\n",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "searchString",
+                        "description": "pass an optional search string for looking up name",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "skip",
+                        "description": "number of records to skip for pagination",
+                        "type": "integer",
+                        "format": "int32",
+                        "minimum": 0
+                    },
+                    {
+                        "in": "query",
+                        "name": "limit",
+                        "description": "maximum number of records to return",
+                        "type": "integer",
+                        "format": "int32",
+                        "minimum": 0,
+                        "maximum": 50
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "400": {
+                        "description": "Request or query parameters not conforming to schema"
+                    },
+                    "401": {
+                        "description": "Token or credentials invalid"
+                    },
+                    "403": {
+                        "description": "No access to resource"
+                    },
+                    "404": {
+                        "description": "Resource not found"
+                    },
+                    "409": {
+                        "description": "Resource already exists"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,41 @@
+{
+    "name": "dfsp1",
+    "description": "",
+    "version": "1.0.0",
+    "author": "f <f>",
+    "contributors": [],
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/f/dfsp1.git"
+    },
+    "bugs": "http://github.com/f/dfsp1/issues",
+    "publishConfig": {
+        "registry": "https://registry.npmjs.org"
+    },
+    "dependencies": {
+        "boom": "^7.1.1",
+        "hapi": "^17.0.0",
+        "hapi-openapi": "^1.0.0",
+        "knex": "^0.16.3",
+        "mysql": "^2.16.0",
+        "request": "^2.88.0",
+        "request-promise": "^4.2.2",
+        "wreck": "^14.1.3"
+    },
+    "devDependencies": {
+        "eslint": "^2",
+        "tape": "^4",
+        "istanbul": "~0.4.3",
+        "swagmock": "~0.0.2"
+    },
+    "scripts": {
+        "test": "tape 'tests/**/*.js'",
+        "cover": "istanbul cover tape -- 'tests/**/*.js'",
+        "lint": "eslint .",
+        "regenerate": "yo swaggerize:test --framework hapi --apiPath './config/swagger.json'"
+    },
+    "generator-swaggerize": {
+        "version": "4.1.0"
+    },
+    "main": "./server"
+}
