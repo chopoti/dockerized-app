@@ -33,7 +33,7 @@ module.exports = {
             let _nameFromDab = await nameFromDb();
             let _provider = await getProvider();
             var _providerArray = JSON.parse(_provider)
-            return nameFromDb
+            return nameFromDb;
          
         }
         catch (ex) {
