@@ -8,7 +8,7 @@ let db = require('knex') ({
         password: 'P@ssw0rd',
         database: 'names'
     },
-    pool: { min: 0, max: 5 }
+    pool: { min: 0, max: 7 }
    
 });
 
