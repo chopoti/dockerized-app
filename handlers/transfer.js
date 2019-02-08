@@ -21,10 +21,6 @@ module.exports = {
         let identifierArray = identifier.split(':')
         let {payerFsp, transferId, amount, currency } = request.payload;
   
-
-
-
-    
         if(identifierArray[0]== 'msisdn'){
             console.log('Your Identified is MSISDN, then we proceed as Mobile Money Transaction')
             console.log('Lets Check if Exist into our Database (This is Payer DFSP)')
